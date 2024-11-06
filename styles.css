@@ -1,0 +1,180 @@
+/* Basic Reset and Variables */
+:root {
+    --primary-color: #1a1a1a;
+    --accent-color: #007AFF;
+    --text-color: #ffffff;
+    --bg-color: #333333;
+}
+
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+}
+
+.cta {
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--accent-color);
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.cta.secondary {
+    background: none;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+}
+
+.cta:hover {
+    background: #005bb5;
+}
+
+/* Sub-Hero Header */
+.sub-hero {
+    background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.1)), url('images/about-bg.jpg') center/cover;
+    color: var(--text-color);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+/* Hobbies Section */
+.hobbies-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    padding: 2rem;
+}
+
+.hobby-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.hobby-card:hover {
+    transform: scale(1.05);
+}
+
+.hobby-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+/* Timeline for Skills Page */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.timeline-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.7s forwards ease-in-out;
+}
+
+.timeline-item:nth-child(odd) {
+    animation-delay: 0.2s;
+}
+
+.timeline-item:nth-child(even) {
+    animation-delay: 0.4s;
+}
+
+.timeline-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background: var(--accent-color);
+    border-radius: 50%;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Contact Section */
+#contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.contact-info {
+    margin-bottom: 1rem;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+form button {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--accent-color);
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+form button:hover {
+    background-color: #005bb5;
+}
+
+.social-logo {
+    width: 20px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
