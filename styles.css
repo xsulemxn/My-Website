@@ -1,163 +1,216 @@
-/* Basic Reset and Variables */
 :root {
     --primary-color: #1a1a1a;
-    --accent-color: #007AFF;
-    --secondary-accent: #5856D6;
+    --secondary-color: #333333;
+    --accent-color: #666666;
     --text-color: #ffffff;
-    --bg-color: #333333;
-    --subtle-bg: rgba(255, 255, 255, 0.08);
+    --background-color: #000000;
 }
 
-/* Global Styles */
-body {
+* {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Hero Section */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    padding: 1rem 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #007AFF;
+}
+
+section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .hero {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: var(--text-color);
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-accent));
+    background-color: var(--background-color);
 }
 
 .hero-content h1 {
-    font-size: 2.8rem;
-    margin: 0.5rem 0;
-    animation: fadeInDown 1s ease-in-out;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #007AFF, #5856D6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.intro {
-    font-size: 1.2rem;
+.subtitle {
+    font-size: 1.5rem;
+    color: var(--accent-color);
     margin-bottom: 2rem;
-    animation: fadeInUp 1.2s ease-in-out;
 }
 
-.cta-container a {
-    margin: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    color: #fff;
-    border-radius: 5px;
-    transition: background 0.3s ease;
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
 }
 
-.cta {
-    background: var(--accent-color);
-}
-
-.cta.secondary {
-    background: none;
-    border: 2px solid var(--accent-color);
-}
-
-.cta:hover {
-    background: #005bb5;
-}
-
-/* Section Header */
-.sub-hero {
-    padding: 3rem 0;
-    text-align: center;
-    background: var(--primary-color);
-}
-
-/* Hobbies Section */
-.hobbies-grid {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    padding: 2rem;
-}
-
-.hobby-card {
-    padding: 1.5rem;
-    background: var(--subtle-bg);
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #007AFF;
+    color: var(--text-color);
+    text-decoration: none;
     border-radius: 8px;
-    text-align: center;
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.hobby-card:hover {
-    transform: translateY(-5px);
-    background: var(--accent-color);
+.cta-button.secondary {
+    background-color: transparent;
+    border: 1px solid #007AFF;
 }
 
-/* Timeline for Skills Page */
-.timeline {
-    display: flex;
-    flex-direction: column;
+.cta-button:hover {
+    transform: translateY(-2px);
+    background-color: #0066CC;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
     gap: 2rem;
+    margin-top: 2rem;
+}
+
+.skills-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.experience-card {
+    background-color: rgba(255, 255, 255, 0.05);
     padding: 2rem;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
 }
 
-.timeline-item {
-    padding: 1.5rem;
-    background: var(--subtle-bg);
-    border-radius: 8px;
-    position: relative;
-    animation: fadeInUp 0.7s forwards ease-in-out;
-    opacity: 0;
+.experience-card:hover {
+    transform: translateY(-5px);
 }
 
-.timeline-item:nth-child(odd) {
-    animation-delay: 0.2s;
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
-.timeline-item:nth-child(even) {
-    animation-delay: 0.4s;
-}
-
-/* Contact Form */
-#contact-section {
+form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 2rem;
+    gap: 1rem;
 }
 
-form input, form textarea {
-    width: 100%;
-    padding: 0.8rem;
+input, textarea {
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--accent-color);
-    border-radius: 5px;
-    margin-bottom: 1rem;
-    background-color: var(--subtle-bg);
+    border-radius: 8px;
+    color: var(--text-color);
 }
 
-form button {
-    padding: 0.75rem 1.5rem;
-    background-color: var(--accent-color);
+textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+button {
+    padding: 1rem;
+    background-color: #007AFF;
+    color: var(--text-color);
     border: none;
-    border-radius: 5px;
-    color: #fff;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
-form button:hover {
-    background-color: #005bb5;
+button:hover {
+    background-color: #0066CC;
 }
 
-/* Animations */
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--primary-color);
 }
 
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
     }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .about-content,
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    
+    section {
+        padding: 3rem 1rem;
+    }
+}
