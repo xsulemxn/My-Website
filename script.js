@@ -29,9 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         const nav = document.querySelector('nav');
         if (window.scrollY > 50) {
-            nav.style.backgroundColor = 'rgba(26, 26, 26, 0.98)';
+            nav.style.backgroundColor = 'rgba(0, 0, 0, 0.98)';
         } else {
-            nav.style.backgroundColor = 'rgba(26, 26, 26, 0.95)';
+            nav.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
         }
     });
 });
