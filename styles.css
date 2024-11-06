@@ -2,8 +2,10 @@
 :root {
     --primary-color: #1a1a1a;
     --accent-color: #007AFF;
+    --secondary-accent: #5856D6;
     --text-color: #ffffff;
     --bg-color: #333333;
+    --subtle-bg: rgba(255, 255, 255, 0.08);
 }
 
 /* Global Styles */
@@ -17,76 +19,73 @@ body {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background-size: cover;
-    background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: var(--text-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-accent));
 }
 
-.hero-content {
-    max-width: 600px;
+.hero-content h1 {
+    font-size: 2.8rem;
+    margin: 0.5rem 0;
+    animation: fadeInDown 1s ease-in-out;
 }
 
-.hero h1 {
-    font-size: 3rem;
+.intro {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1.2s ease-in-out;
+}
+
+.cta-container a {
+    margin: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    color: #fff;
+    border-radius: 5px;
+    transition: background 0.3s ease;
 }
 
 .cta {
-    margin-top: 1rem;
-    padding: 0.75rem 1.5rem;
     background: var(--accent-color);
-    color: #fff;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background 0.3s ease;
 }
 
 .cta.secondary {
     background: none;
     border: 2px solid var(--accent-color);
-    color: var(--accent-color);
 }
 
 .cta:hover {
     background: #005bb5;
 }
 
-/* Sub-Hero Header */
+/* Section Header */
 .sub-hero {
-    background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.1)), url('images/about-bg.jpg') center/cover;
-    color: var(--text-color);
-    padding: 4rem 0;
+    padding: 3rem 0;
     text-align: center;
+    background: var(--primary-color);
 }
 
 /* Hobbies Section */
 .hobbies-grid {
     display: grid;
-    gap: 2rem;
+    gap: 1.5rem;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     padding: 2rem;
 }
 
 .hobby-card {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 1rem;
+    padding: 1.5rem;
+    background: var(--subtle-bg);
     border-radius: 8px;
     text-align: center;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .hobby-card:hover {
-    transform: scale(1.05);
-}
-
-.hobby-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 1rem;
+    transform: translateY(-5px);
+    background: var(--accent-color);
 }
 
 /* Timeline for Skills Page */
@@ -98,13 +97,12 @@ body {
 }
 
 .timeline-item {
-    background: rgba(255, 255, 255, 0.1);
     padding: 1.5rem;
+    background: var(--subtle-bg);
     border-radius: 8px;
     position: relative;
-    opacity: 0;
-    transform: translateY(20px);
     animation: fadeInUp 0.7s forwards ease-in-out;
+    opacity: 0;
 }
 
 .timeline-item:nth-child(odd) {
@@ -115,47 +113,21 @@ body {
     animation-delay: 0.4s;
 }
 
-.timeline-item:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -20px;
-    top: 0;
-    width: 10px;
-    height: 10px;
-    background: var(--accent-color);
-    border-radius: 50%;
-}
-
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Contact Section */
+/* Contact Form */
 #contact-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
     padding: 2rem;
-}
-
-.contact-info {
-    margin-bottom: 1rem;
 }
 
 form input, form textarea {
     width: 100%;
-    padding: 1rem;
-    border: 1px solid #ccc;
+    padding: 0.8rem;
+    border: 1px solid var(--accent-color);
     border-radius: 5px;
     margin-bottom: 1rem;
+    background-color: var(--subtle-bg);
 }
 
 form button {
@@ -172,9 +144,20 @@ form button:hover {
     background-color: #005bb5;
 }
 
-.social-logo {
-    width: 20px;
-    height: auto;
-    vertical-align: middle;
-    margin-right: 0.5rem;
+/* Animations */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
